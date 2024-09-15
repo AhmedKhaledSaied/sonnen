@@ -2,7 +2,7 @@ def fib_generator():
     a = 0
     b = 1
     while True:
-        yield a
+        yield
         tmp = a
         a = b
         b = tmp + b
