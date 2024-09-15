@@ -29,3 +29,14 @@ def test_energy_algorithm(setup_dut):
 
     grid_power = dut.get("grid_power")
     assert grid_power > 0, "grid is supplying the power"  # forth case
+
+@pytest.mark.parametrize("setup", [
+    {"inverters": 1, "battery_modules": 2, "controllers": 1},  # Basic
+    {"inverters": 1, "battery_modules": 3, "controllers": 1},  # Standard
+    {"inverters": 1, "battery_modules": 5, "controllers": 1}  # Pro
+ ])
+def test_different_setups(setup_dut, setup):
+    dut = setup_dut
+    dut.set("system_setup", setup)
+    assert dut.get("system_setup") == setup
+
