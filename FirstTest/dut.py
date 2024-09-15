@@ -1,8 +1,5 @@
 class DUT:
     def __init__(self):
-        self.values = None
-
-    def __int__(self):
         self.values = {}
 
     def set(self, key: str, value) -> bool:
